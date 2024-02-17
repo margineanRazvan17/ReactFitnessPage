@@ -1,0 +1,23 @@
+/* Register.css */
+
+.grid {
+    display: grid;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .bg--register {
+    background-color: #e6e6ff; /* Change this to your desired purple shade */
+    background-image: url('sport3.jpg'); /* Adaugă calea către imaginea ta de fundal */
+    background-size: cover;
+    background-position: right center;
+  }
+  
+  /* Restul stilurilor păstrate aici... */
+  

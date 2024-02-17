@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+ import { useState } from 'react';
+ import './App.css';
+ import { BrowserRouter, Routes, Route} from 'react-router-dom';
+ 
+ //pages imports
+ import Home from './pages/Home';
+ import About from './pages/About';
+ import Antrenamente from './pages/Antrenamente';
+ import ErrorPage from './pages/ErrorPage';
+ import SharedLayout from './components/SharedLayout';
+ import Login from './pages/Login';
+import Register from './pages/Register';
+ 
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<SharedLayout/>}>
+          <Route index element ={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/antrenamente' element={<Antrenamente/>}/>
+          <Route path='/login' element={<Login setUser={setUser}></Login>} />
+          <Route path='/register' element={<Register/>}/>
+          <Route path='*' element={<ErrorPage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
